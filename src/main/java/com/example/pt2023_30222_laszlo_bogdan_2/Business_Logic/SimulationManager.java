@@ -11,12 +11,12 @@ import static java.lang.Math.random;
 
 public class SimulationManager implements Runnable {
     private FileWriter log;
-    public int timeLimit=201;
+    public int timeLimit=200;
     public int maxProcessingTime=9;
     public int minProcessingTime=3;
     public int numberOfServers=20;
-    public int numberOfClients=100;
-    private int simTime=200;
+    public int numberOfClients=1000;
+    private int simTime;
     private int minArrivalTime=10;
     private int maxArrivalTime=100;
     private Scheduler scheduler;
@@ -35,8 +35,8 @@ public class SimulationManager implements Runnable {
     public void generateNRandomClients(){
         generatedClients=new ArrayList<Client>();
         for(int i=0;i<numberOfClients;i++) {
-            int randNrProc = (int) ((int) minProcessingTime + (random() * maxProcessingTime));
-            int randNrArr = (int) ((int) minArrivalTime + (random() * maxArrivalTime));
+            int randNrProc = (int)Math.floor(Math.random() * (maxProcessingTime - minProcessingTime + 1) + minProcessingTime);
+            int randNrArr =(int)Math.floor(Math.random() * (maxArrivalTime - minArrivalTime + 1) + minArrivalTime);
             generatedClients.add(new Client(randNrArr, randNrProc));
         }
     }
