@@ -1,7 +1,5 @@
 package com.example.pt2023_30222_laszlo_bogdan_2.Model;
 
-import com.example.pt2023_30222_laszlo_bogdan_2.Model.Client;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
